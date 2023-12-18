@@ -42,18 +42,8 @@ def readInput(fname):
     file = open(fname)
     lines = file.readlines()
 
-
-
-
-    cnt = 0
-
-    times = []
-    dist = []
     data = []
-    d = dict()
-    start = []
 
-    
     for line in lines:
         s = []
         line = line.strip()
@@ -69,28 +59,13 @@ def readInput(fname):
         else:
             tokens = line.split() 
             data.append([tokens[0], int(tokens[1])])
-            
-
-
-
-            
-        
-        
-            
-
-
-        cnt += 1
-            
-  
-
-
-
+                      
     return data
 
 
         
 start_time = time.time()
-out = readInput(r"C:\Users\dsele\OneDrive\Desktop\input2023\input_18.txt")
+out = readInput(r"C:\Users\dse\OneDrive\Desktop\input2023\input_18.txt")
 myprint(out)
 
 x = 0
@@ -109,15 +84,13 @@ middles = 0
 lastdir = out[-1][0]
 
 pipes = [] #locations of "|" for figuring out interior points using 
+
 for c in out:
     curdir = c[0]
     steps = c[1]
     
     corners.append((x,y, lastdir+curdir))
     middles += steps - 1
-    
-    
-    #ath[y] += path[y]+[x,curdirs]
     
     
     x1 = x + steps * d[curdir][0]
@@ -136,18 +109,14 @@ for c in out:
         
     lastdir = curdir
         
-
-   
         
     ans += delta
     
     x = x1
     y = y1
 
-#print(corners)
-#print(pipes)
-#print(middles)
-#print(ans)      
+
+
 
 def findNumOutside(corners, pipes):
     ans = 0
